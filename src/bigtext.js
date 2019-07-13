@@ -127,6 +127,13 @@
 
         return this.trigger('bigtext:complete');
       },
+      unregister: function(id)
+      {
+        if(id) {
+          // Unregister the BigText resize event that was bound to the window.
+          $(window).unbind('resize.bigtext-event-' + id);
+        }
+      },
       testLineDimensions: function($line, maxWidth, property, size, interval, units, previousWidth)
       {
         var width;

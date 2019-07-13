@@ -1,6 +1,6 @@
-/*! BigText - v1.0.1 - 2017-10-02
+/*! BigText - v1.0.1 - 2019-07-13
  * https://github.com/zachleat/bigtext
- * Copyright (c) 2017 Zach Leatherman (@zachleat)
+ * Copyright (c) 2019 Zach Leatherman (@zachleat)
  * MIT License */
 
 (function(window, $) {
@@ -131,6 +131,13 @@
         });
 
         return this.trigger('bigtext:complete');
+      },
+      unregister: function(id)
+      {
+        if(id) {
+          // Unregister the BigText resize event that was bound to the window.
+          $(window).unbind('resize.bigtext-event-' + id);
+        }
       },
       testLineDimensions: function($line, maxWidth, property, size, interval, units, previousWidth)
       {
